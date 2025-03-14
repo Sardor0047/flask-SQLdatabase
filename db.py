@@ -60,10 +60,13 @@ class Smartphone:
             ( name, color, ram, memory, price),
         )
         self.connect.commit()
+        self.connect.close()
         return True
     
     def sql_delete_smartphone(self, id):
-
-        return 
+        self.cursor.execute("DELETE FROM smartphone WHERE id = ?", (id,))
+        self.connect.commit()
+        self.connect.close()
+        return True
 db1 = Smartphone('smartphone_store.db')
 print(db1.sql_get_smartphone_by_ram('6GB'))

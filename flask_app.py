@@ -80,7 +80,8 @@ def add_smartphone():
 @app.route('/smartphone/delete/<int:id>', methods=['DELETE'])
 def delete_smartphone(id):
     """Deletes a smartphone from the database"""
-    return 
+    db1 = Smartphone('smartphone_store.db')
+    return {'dalate':db1.sql_delete_smartphone(id)}
 
 if __name__ == '__main__':
     app.run(debug=True)
